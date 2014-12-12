@@ -1,0 +1,838 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Nokia TAC Database v1.0</title>
+<style>
+<!--
+body		{ font-family: Verdana; font-size: 8pt; padding: 0px; margin: 0px; }
+a		{ font-size: 8pt; color: #000000; text-decoration: none; }
+a:hover		{ font-size: 8pt; color: #808080; text-decoration: none; }
+
+#menu1		{ border-bottom: 1px solid #FFFFFF; padding: 10px; }
+#menuitem	{ border-bottom: 1px solid #FFFFFF; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; clear: both; }
+#menuitem:hover	{ background-color: #F0F0FF; }
+
+table		{ font-family: Verdana; font-size: 8pt }
+hr		{ height: 1px; border: 1px solid #FFFFFF; color: #FFFFFF; background-color: #FFFFFF; }
+
+input		{ font-size: 8pt; border: 1px solid #000000; padding: 3px; }
+select		{ font-size: 8pt; border: 1px solid #000000; padding: 2px; }
+textarea	{ font-size: 8pt; border: 1px solid #000000; padding: 3px; }
+
+#title1		{ font-size: 16pt; font-weight: bold; }
+#title2		{ font-size: 10pt; font-weight: bold; padding: 8px; }
+
+#table2		{ font-size: 8pt; padding: 10px; background-color: #FFFFFF; }
+#table3		{ font-size: 8pt; padding: 10px; background-color: #FFFFFF; border: 1px solid #000000; border-collapse: collapse; }
+th		{ font-size: 10pt; font-weight: bold; text-align: left; padding: 5px; border-bottom: 1px solid #000000; }
+#td2		{ font-size: 8pt; padding: 10px; }
+#highcolor	{ font-weight: bold; color: #FF0000; }
+#highcolorg	{ font-weight: bold; color: #00C000; }
+#inputtext	{ font-size: 8pt; border: 1px solid #808080; }
+#inputbutton	{ font-size: 8pt; border: 1px solid #808080; background-color: #C0C0C0; }
+#msgframe	{ border: 1px solid #FF0000; padding: 0px; margin: 0px; background-color: #FFFFFF; }
+-->
+</style>
+
+  <script language="JavaScript" type="text/JavaScript"> <!--
+    function toggleblock (id){
+      if (document.getElementById) {
+        var mydiv = document.getElementById(id);
+        mydiv.style.display = (mydiv.style.display=='none'?'block':'none');
+      }
+    }
+    function toggleinline (id){
+      if (document.getElementById) {
+        var mydiv = document.getElementById(id);
+        mydiv.style.display = (mydiv.style.display=='inline'?'none':'inline');
+      }
+    }
+  //--> </script>
+
+</head>
+
+<body>
+<div style="width: 1000px;">
+
+<div style="margin-top: 10px; margin-bottom: 10px; margin-left: 10px;">
+	<table border="0" cellpadding="5" cellspacing="0">
+		<tr>
+			<td><a href="index.php"><img border="0" src="icon_whirl01.gif"></p></td>
+			<td><p id="title1">Nokia TAC Database</p></td>
+		<tr>
+	</table>
+</div>
+
+<div style="width: 200px; height: 100%; float: left; background-color: #E0E0FF;">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td bgcolor="#E0E0FF" width="99%"></td>
+			<td bgcolor="#E0E0FF" width="1%" valign="top"><img border="0" src="borderright.gif"></td>
+		</tr>
+	</table>
+
+	<p align="center"><img border="0" src="logo_top2.gif"><br><img border="0" src="mobileident01.gif"></p>
+	<div id="menu1">select language:<p><a href="?s=search&lng=eng"><img border="1" src="lang_eng.gif"></a> <a href="?s=search&lng=de"><img border="1" src="lang_de.gif"></a></p></div>
+	<a href="index.php?s=tacdb&lng=eng"><div id="menuitem"><span style="float: left"><img border="0" src="menu_block1.gif">TAC Database</span><span style="float: right;"><img border="0" src="menu_arrow1.gif"></span><br style="clear: both;"></div></a>
+	<a href="index.php?s=search&lng=eng"><div id="menuitem"><span style="float: left"><img border="0" src="menu_block1.gif"><b>Search Database</b></span><span style="float: right;"><img border="0" src="menu_arrow1.gif"></span><br style="clear: both;"></div></a>
+	<a href="index.php?s=addtac&lng=eng"><div id="menuitem"><span style="float: left"><img border="0" src="menu_block1.gif">Add new TAC</span><span style="float: right;"><img border="0" src="menu_arrow1.gif"></span><br style="clear: both;"></div></a>
+	<a href="index.php?s=imeitools&lng=eng"><div id="menuitem"><span style="float: left"><img border="0" src="menu_block1.gif">IMEI Tools</span><span style="float: right;"><img border="0" src="menu_arrow1.gif"></span><br style="clear: both;"></div></a>
+	<a href="index.php?s=links&lng=eng"><div id="menuitem"><span style="float: left"><img border="0" src="menu_block1.gif">Useful Links</span><span style="float: right;"><img border="0" src="menu_arrow1.gif"></span><br style="clear: both;"></div></a>
+	<a href="index.php?s=comments&lng=eng"><div id="menuitem"><span style="float: left"><img border="0" src="menu_block1.gif">Comments</span><span style="float: right;"><img border="0" src="menu_arrow1.gif"></span><br style="clear: both;"></div></a>
+	<a href="index.php?s=donate&lng=eng"><div id="menuitem"><span style="float: left"><img border="0" src="menu_block1.gif">Donate</span><span style="float: right;"><img border="0" src="menu_arrow1.gif"></span><br style="clear: both;"></div></a>
+	<div id="menu1">
+		<p>powered by:</p>
+		<p><a href="http://www.nokiaport.de" target="_blank"><img border="0" src="logo_np.gif" width="145" height="20"></p>
+		<p><a href="http://www.nokia-tuning.net" target="_blank"><img border="0" src="logo_nt.gif" width="160" height="20"></a></p>
+	</div>
+	<p align="center"><img border="0" src="menu_phones.gif"></p>
+	<p align="center"></p>
+</div>
+
+
+<div style="padding-left: 20px; float: left;">
+
+<p align="right" style="margin: 20px;"><a href="http://www.nokiaport.de/buch"><img border="0" src="banner_book.gif"></a></p>
+
+
+<div style="width: 728px;">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td bgcolor="#E0E0FF" width="1%" valign="top" width="1%"><img border="0" src="borderleft.gif"></td>
+			<td bgcolor="#E0E0FF" width="1%"><p id="title2"><nobr>Search TAC Database</nobr></p></td>
+			<td bgcolor="#E0E0FF" width="1%"><a href="#x" onclick="javascript:toggleblock('searchdatabase'); return false"><img border="0" src="toggle01.gif" alt="open/collapse" title="open/collapse"></a></td>
+			<td bgcolor="#E0E0FF" width="1%" valign="top"><img border="0" src="borderright.gif"></td>
+			<td valign="top" width="96%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0E0FF" colspan="5">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="99%"></td>
+						<td width="1%"><img border="0" src="borderright.gif"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0E0FF" valign="top" colspan="5">
+				<div id="searchdatabase" style="display: block; padding: 10px;">
+					<p><img border="0" src="imei02.gif" width="221" height="86" align="right"></p>
+					<p>This form helps you to find any Nokia phone via TAC or vice versa.</p>
+					<hr>
+					<form name="f_searchtac" method="POST" action="index.php?s=search&lng=eng">
+					<table border="0" cellpadding="5" cellspacing="0">
+						<tr>
+							<td><nobr><b>TAC (first 6 digits of IMEI (min. 3 digits)):</b></nobr></td>
+							<td><input type="text" name="s_entertac" size="15" maxlength="6" value="1316000"></td>
+							<td><input type="submit" value="Search" name="b_search_tac"></td>
+						<tr>
+					</table>
+					</form>
+					<form name="f_searchphone" method="POST" action="index.php?s=search&lng=eng">
+					<table border="0" cellpadding="5" cellspacing="0">
+						</tr>
+							<td><p><b>Phone model:</b></p></td>
+							<td>Nokia <select name="s_enterphone">
+								<option>- select phone -</option>
+
+								<option selected value=""></option>
+								<option value="100">100</option>
+								<option value="1000 / 100">1000 / 100</option>
+								<option value="1006">1006</option>
+								<option value="101">101</option>
+								<option value="1010 / 101">1010 / 101</option>
+								<option value="1011">1011</option>
+								<option value="1020 Lumia">1020 Lumia</option>
+								<option value="103">103</option>
+								<option value="1030 / 103">1030 / 103</option>
+								<option value="105">105</option>
+								<option value="106">106</option>
+								<option value="106.1">106.1</option>
+								<option value="107">107</option>
+								<option value="108">108</option>
+								<option value="109 ">109 </option>
+								<option value="11">11</option>
+								<option value="110 ">110 </option>
+								<option value="1100">1100</option>
+								<option value="1100 / 110">1100 / 110</option>
+								<option value="1100b">1100b</option>
+								<option value="1101">1101</option>
+								<option value="1108">1108</option>
+								<option value="111 ">111 </option>
+								<option value="111.1 ">111.1 </option>
+								<option value="1110">1110</option>
+								<option value="1110i">1110i</option>
+								<option value="1112">1112</option>
+								<option value="1112b">1112b</option>
+								<option value="112 ">112 </option>
+								<option value="1120 / 112">1120 / 112</option>
+								<option value="113 ">113 </option>
+								<option value="114 ">114 </option>
+								<option value="12">12</option>
+								<option value="12 GSM Modul">12 GSM Modul</option>
+								<option value="1200">1200</option>
+								<option value="1202">1202</option>
+								<option value="1202-2">1202-2</option>
+								<option value="1203-2 ">1203-2 </option>
+								<option value="1203-2 Asha">1203-2 Asha</option>
+								<option value="1207">1207</option>
+								<option value="1208">1208</option>
+								<option value="1208b">1208b</option>
+								<option value="1209">1209</option>
+								<option value="1255">1255</option>
+								<option value="1280 ">1280 </option>
+								<option value="130">130</option>
+								<option value="1320 Lumia">1320 Lumia</option>
+								<option value="150">150</option>
+								<option value="1520 Lumia">1520 Lumia</option>
+								<option value="1520.1 Lumia">1520.1 Lumia</option>
+								<option value="1520.2 Lumia">1520.2 Lumia</option>
+								<option value="1600">1600</option>
+								<option value="1600b">1600b</option>
+								<option value="1610">1610</option>
+								<option value="1610 (Philips PR747)">1610 (Philips PR747)</option>
+								<option value="1611">1611</option>
+								<option value="1616-2">1616-2</option>
+								<option value="1616-2b">1616-2b</option>
+								<option value="1620">1620</option>
+								<option value="1620 (Energy)">1620 (Energy)</option>
+								<option value="1630">1630</option>
+								<option value="1631">1631</option>
+								<option value="1650">1650</option>
+								<option value="1650b">1650b</option>
+								<option value="1661-2 ">1661-2 </option>
+								<option value="1661-2b">1661-2b</option>
+								<option value="1680c Classic">1680c Classic</option>
+								<option value="1680c-2b Classic">1680c-2b Classic</option>
+								<option value="1800 ">1800 </option>
+								<option value="1800-2b">1800-2b</option>
+								<option value="20">20</option>
+								<option value="200 Asha">200 Asha</option>
+								<option value="2000 / 200">2000 / 200</option>
+								<option value="201 Asha">201 Asha</option>
+								<option value="201.2 Asha">201.2 Asha</option>
+								<option value="2010">2010</option>
+								<option value="2010 / 201">2010 / 201</option>
+								<option value="202 Asha">202 Asha</option>
+								<option value="2020 / 202">2020 / 202</option>
+								<option value="203 Asha">203 Asha</option>
+								<option value="203.1 ">203.1 </option>
+								<option value="2030 / 203">2030 / 203</option>
+								<option value="205.3 Asha">205.3 Asha</option>
+								<option value="210 Asha">210 Asha</option>
+								<option value="2100">2100</option>
+								<option value="2110">2110</option>
+								<option value="2110 (Philips PR747 II)">2110 (Philips PR747 II)</option>
+								<option value="2110i">2110i</option>
+								<option value="2140">2140</option>
+								<option value="2140 (Philips PR 748)">2140 (Philips PR 748)</option>
+								<option value="2140 (Technophone 885)">2140 (Technophone 885)</option>
+								<option value="2146">2146</option>
+								<option value="2148i">2148i</option>
+								<option value="22">22</option>
+								<option value="2220s-2 Slide">2220s-2 Slide</option>
+								<option value="2260">2260</option>
+								<option value="2280 no R-UIM">2280 no R-UIM</option>
+								<option value="2300">2300</option>
+								<option value="2300b">2300b</option>
+								<option value="2310">2310</option>
+								<option value="2320c Classic">2320c Classic</option>
+								<option value="2323c Classic">2323c Classic</option>
+								<option value="2323c-2 Classic">2323c-2 Classic</option>
+								<option value="2330c Classic">2330c Classic</option>
+								<option value="2330c-2 Classic">2330c-2 Classic</option>
+								<option value="2366i">2366i</option>
+								<option value="2520 Lumia">2520 Lumia</option>
+								<option value="2600">2600</option>
+								<option value="2600c Classic">2600c Classic</option>
+								<option value="2600c-2 Classic">2600c-2 Classic</option>
+								<option value="2600c-2b Classic">2600c-2b Classic</option>
+								<option value="2610">2610</option>
+								<option value="2610b">2610b</option>
+								<option value="2626">2626</option>
+								<option value="2630 Europe/Asia">2630 Europe/Asia</option>
+								<option value="2650">2650</option>
+								<option value="2652">2652</option>
+								<option value="2660 Europe/Asia">2660 Europe/Asia</option>
+								<option value="2680s Slide">2680s Slide</option>
+								<option value="2680s-2b Slide">2680s-2b Slide</option>
+								<option value="2690">2690</option>
+								<option value="2700c Classic">2700c Classic</option>
+								<option value="2700c-2 Classic">2700c-2 Classic</option>
+								<option value="2710c-2 Navigation Editio">2710c-2 Navigation Editio</option>
+								<option value="2720a Fold">2720a Fold</option>
+								<option value="2720a-2 Fold">2720a-2 Fold</option>
+								<option value="2720a-2b Fold">2720a-2b Fold</option>
+								<option value="2730c-1 Classic">2730c-1 Classic</option>
+								<option value="2730c-1b Classic">2730c-1b Classic</option>
+								<option value="2760 Americas">2760 Americas</option>
+								<option value="2760 Europe/Asia">2760 Europe/Asia</option>
+								<option value="30">30</option>
+								<option value="300 Asha">300 Asha</option>
+								<option value="3000 / 300">3000 / 300</option>
+								<option value="301.1">301.1</option>
+								<option value="301.2">301.2</option>
+								<option value="302 Asha">302 Asha</option>
+								<option value="3020 / 302">3020 / 302</option>
+								<option value="303 Asha">303 Asha</option>
+								<option value="3030 / 303">3030 / 303</option>
+								<option value="305 Asha">305 Asha</option>
+								<option value="3050 / 305">3050 / 305</option>
+								<option value="306 Asha">306 Asha</option>
+								<option value="306.1 Asha">306.1 Asha</option>
+								<option value="3060 / 306">3060 / 306</option>
+								<option value="3070 / 307">3070 / 307</option>
+								<option value="308 Asha">308 Asha</option>
+								<option value="308.1 Asha">308.1 Asha</option>
+								<option value="3080 / 308">3080 / 308</option>
+								<option value="309 Asha">309 Asha</option>
+								<option value="3100">3100</option>
+								<option value="3100b">3100b</option>
+								<option value="3108">3108</option>
+								<option value="3109c Classic">3109c Classic</option>
+								<option value="3109cb Classic">3109cb Classic</option>
+								<option value="311 Asha">311 Asha</option>
+								<option value="3110">3110</option>
+								<option value="3110 / 311">3110 / 311</option>
+								<option value="3110c Classic">3110c Classic</option>
+								<option value="3120">3120</option>
+								<option value="3120b">3120b</option>
+								<option value="3120c-1 Classic">3120c-1 Classic</option>
+								<option value="3120c-1b Classic">3120c-1b Classic</option>
+								<option value="3128">3128</option>
+								<option value="3129">3129</option>
+								<option value="3200">3200</option>
+								<option value="3200b">3200b</option>
+								<option value="3210">3210</option>
+								<option value="3220">3220</option>
+								<option value="3220b">3220b</option>
+								<option value="3230">3230</option>
+								<option value="3250">3250</option>
+								<option value="3300a">3300a</option>
+								<option value="3310">3310</option>
+								<option value="3315">3315</option>
+								<option value="3330">3330</option>
+								<option value="3350">3350</option>
+								<option value="3410">3410</option>
+								<option value="3500c Classic">3500c Classic</option>
+								<option value="3500cb Classic">3500cb Classic</option>
+								<option value="3510">3510</option>
+								<option value="3510i">3510i</option>
+								<option value="3530">3530</option>
+								<option value="3555">3555</option>
+								<option value="3555cb Classic">3555cb Classic</option>
+								<option value="3588i">3588i</option>
+								<option value="3600s Slide">3600s Slide</option>
+								<option value="3610">3610</option>
+								<option value="3610 Fold">3610 Fold</option>
+								<option value="3650">3650</option>
+								<option value="3660">3660</option>
+								<option value="3710a-1 Fold">3710a-1 Fold</option>
+								<option value="3711a-1 Fold">3711a-1 Fold</option>
+								<option value="3720c-2 Classic">3720c-2 Classic</option>
+								<option value="3810">3810</option>
+								<option value="440">440</option>
+								<option value="450">450</option>
+								<option value="500 ">500 </option>
+								<option value="5000d-2">5000d-2</option>
+								<option value="501 Asha">501 Asha</option>
+								<option value="5030c-2 (XpressRadio)">5030c-2 (XpressRadio)</option>
+								<option value="5070">5070</option>
+								<option value="5070b">5070b</option>
+								<option value="510 Lumia">510 Lumia</option>
+								<option value="510.2 Lumia">510.2 Lumia</option>
+								<option value="5100">5100</option>
+								<option value="5110">5110</option>
+								<option value="5110i">5110i</option>
+								<option value="5110i APAC">5110i APAC</option>
+								<option value="5120">5120</option>
+								<option value="5130">5130</option>
+								<option value="5130c XpressMusic">5130c XpressMusic</option>
+								<option value="5130c-2 XpressMusic">5130c-2 XpressMusic</option>
+								<option value="5140">5140</option>
+								<option value="5140b">5140b</option>
+								<option value="5140i">5140i</option>
+								<option value="5146">5146</option>
+								<option value="520 Lumia">520 Lumia</option>
+								<option value="520.2 Lumia">520.2 Lumia</option>
+								<option value="5200">5200</option>
+								<option value="5200 XpressMusic">5200 XpressMusic</option>
+								<option value="5200b">5200b</option>
+								<option value="521">521</option>
+								<option value="5210">5210</option>
+								<option value="5220 XpressMusic">5220 XpressMusic</option>
+								<option value="5228 ">5228 </option>
+								<option value="5230 ">5230 </option>
+								<option value="5230 Nuron">5230 Nuron</option>
+								<option value="5230-1b ">5230-1b </option>
+								<option value="5230-1c Nuron">5230-1c Nuron</option>
+								<option value="5230-1d ">5230-1d </option>
+								<option value="5232 ">5232 </option>
+								<option value="5233">5233</option>
+								<option value="5235 Comes With Music Edi">5235 Comes With Music Edi</option>
+								<option value="5238 ">5238 </option>
+								<option value="5250 ">5250 </option>
+								<option value="5300 XpressMusic">5300 XpressMusic</option>
+								<option value="5310 XpressMusic">5310 XpressMusic</option>
+								<option value="5310b XpressMusic">5310b XpressMusic</option>
+								<option value="5320d-1 XpressMusic">5320d-1 XpressMusic</option>
+								<option value="5320d-1b XpressMusic">5320d-1b XpressMusic</option>
+								<option value="5330-1d MobileTVEdition">5330-1d MobileTVEdition</option>
+								<option value="5500d Sport">5500d Sport</option>
+								<option value="5510">5510</option>
+								<option value="5530c XpressMusic">5530c XpressMusic</option>
+								<option value="5530c-2 XpressMusic">5530c-2 XpressMusic</option>
+								<option value="5610d-1 XpressMusic">5610d-1 XpressMusic</option>
+								<option value="5610d-5 XpressMusic">5610d-5 XpressMusic</option>
+								<option value="5630d-1 XpressMusic">5630d-1 XpressMusic</option>
+								<option value="5700 XpressMusic">5700 XpressMusic</option>
+								<option value="5700b XpressMusic">5700b XpressMusic</option>
+								<option value="5710">5710</option>
+								<option value="5730s-1 XpressMusic">5730s-1 XpressMusic</option>
+								<option value="5800d-1 Navigation Editio">5800d-1 Navigation Editio</option>
+								<option value="5800d-1 XpressMusic">5800d-1 XpressMusic</option>
+								<option value="5800d-1b XpressMusic">5800d-1b XpressMusic</option>
+								<option value="5800i XpressMusic">5800i XpressMusic</option>
+								<option value="600 ">600 </option>
+								<option value="6010">6010</option>
+								<option value="6020">6020</option>
+								<option value="6020b">6020b</option>
+								<option value="6021">6021</option>
+								<option value="603 ">603 </option>
+								<option value="6030">6030</option>
+								<option value="6030b">6030b</option>
+								<option value="6050">6050</option>
+								<option value="6060">6060</option>
+								<option value="6070">6070</option>
+								<option value="6070b">6070b</option>
+								<option value="6080">6080</option>
+								<option value="6081">6081</option>
+								<option value="6085">6085</option>
+								<option value="6085h">6085h</option>
+								<option value="6086">6086</option>
+								<option value="6088">6088</option>
+								<option value="6090">6090</option>
+								<option value="6091">6091</option>
+								<option value="610 Lumia">610 Lumia</option>
+								<option value="610.6 NFC">610.6 NFC</option>
+								<option value="6100">6100</option>
+								<option value="6101">6101</option>
+								<option value="6101b">6101b</option>
+								<option value="6102">6102</option>
+								<option value="6102b">6102b</option>
+								<option value="6102i">6102i</option>
+								<option value="6103 ">6103 </option>
+								<option value="6103b">6103b</option>
+								<option value="6108">6108</option>
+								<option value="6110">6110</option>
+								<option value="6110 Navigator">6110 Navigator</option>
+								<option value="6110n-1 Navigator">6110n-1 Navigator</option>
+								<option value="6110n-5 Navigator">6110n-5 Navigator</option>
+								<option value="6111">6111</option>
+								<option value="6120 Classic">6120 Classic</option>
+								<option value="6120b Classic">6120b Classic</option>
+								<option value="6120c-1 Classic">6120c-1 Classic</option>
+								<option value="6120c-5 Classic">6120c-5 Classic</option>
+								<option value="6121c Classic">6121c Classic</option>
+								<option value="6124 Vodafone">6124 Vodafone</option>
+								<option value="6125">6125</option>
+								<option value="6126">6126</option>
+								<option value="6130">6130</option>
+								<option value="6131">6131</option>
+								<option value="6131 NFC">6131 NFC</option>
+								<option value="6133">6133</option>
+								<option value="6136b">6136b</option>
+								<option value="6138">6138</option>
+								<option value="6150">6150</option>
+								<option value="6151">6151</option>
+								<option value="616">616</option>
+								<option value="616 Car Kit">616 Car Kit</option>
+								<option value="6161">6161</option>
+								<option value="6165i">6165i</option>
+								<option value="6170">6170</option>
+								<option value="6170b">6170b</option>
+								<option value="6200">6200</option>
+								<option value="6208c Classic">6208c Classic</option>
+								<option value="6210">6210</option>
+								<option value="6210s-1 Navigator">6210s-1 Navigator</option>
+								<option value="6210s-1c Navigator">6210s-1c Navigator</option>
+								<option value="6212c Classic">6212c Classic</option>
+								<option value="6220">6220</option>
+								<option value="6220c Classic">6220c Classic</option>
+								<option value="6220c-1 Classic">6220c-1 Classic</option>
+								<option value="6230">6230</option>
+								<option value="6230b">6230b</option>
+								<option value="6230i">6230i</option>
+								<option value="6233">6233</option>
+								<option value="6234">6234</option>
+								<option value="625 Lumia">625 Lumia</option>
+								<option value="625.1 Lumia">625.1 Lumia</option>
+								<option value="6250">6250</option>
+								<option value="6250-1b">6250-1b</option>
+								<option value="625H ">625H </option>
+								<option value="625H Lumia">625H Lumia</option>
+								<option value="6260">6260</option>
+								<option value="6263">6263</option>
+								<option value="6267">6267</option>
+								<option value="6270">6270</option>
+								<option value="6275">6275</option>
+								<option value="6280">6280</option>
+								<option value="6282">6282</option>
+								<option value="6288">6288</option>
+								<option value="6300">6300</option>
+								<option value="6300b">6300b</option>
+								<option value="6300i">6300i</option>
+								<option value="6301">6301</option>
+								<option value="6301b">6301b</option>
+								<option value="6303c Classic">6303c Classic</option>
+								<option value="6303ic Classic">6303ic Classic</option>
+								<option value="6310">6310</option>
+								<option value="6310i">6310i</option>
+								<option value="6350-1b">6350-1b</option>
+								<option value="650">650</option>
+								<option value="6500">6500</option>
+								<option value="6500c Classic">6500c Classic</option>
+								<option value="6500s Slide">6500s Slide</option>
+								<option value="6500s-5 Slide">6500s-5 Slide</option>
+								<option value="6510">6510</option>
+								<option value="6555">6555</option>
+								<option value="6555c Classic">6555c Classic</option>
+								<option value="6556c Classic">6556c Classic</option>
+								<option value="6600">6600</option>
+								<option value="6600f-1 Fold">6600f-1 Fold</option>
+								<option value="6600is-1c Slide">6600is-1c Slide</option>
+								<option value="6600s-1c Slide">6600s-1c Slide</option>
+								<option value="6610">6610</option>
+								<option value="6610i">6610i</option>
+								<option value="6620">6620</option>
+								<option value="6630">6630</option>
+								<option value="6650">6650</option>
+								<option value="6650d-1bH (T-Mobile)">6650d-1bH (T-Mobile)</option>
+								<option value="6670">6670</option>
+								<option value="6670b">6670b</option>
+								<option value="6680">6680</option>
+								<option value="6681">6681</option>
+								<option value="6682">6682</option>
+								<option value="6700c-1 Classic">6700c-1 Classic</option>
+								<option value="6700s Slide">6700s Slide</option>
+								<option value="6700s-1c Slide">6700s-1c Slide</option>
+								<option value="6702s Slide">6702s Slide</option>
+								<option value="6708">6708</option>
+								<option value="6710s-1 Navigator">6710s-1 Navigator</option>
+								<option value="6720c Classic">6720c Classic</option>
+								<option value="6720c-1b Classic">6720c-1b Classic</option>
+								<option value="6730c-1 ">6730c-1 </option>
+								<option value="6760s-1 Slide">6760s-1 Slide</option>
+								<option value="6788">6788</option>
+								<option value="6790s-1c Surge">6790s-1c Surge</option>
+								<option value="6800">6800</option>
+								<option value="6810">6810</option>
+								<option value="6820">6820</option>
+								<option value="6820b">6820b</option>
+								<option value="6822a">6822a</option>
+								<option value="6822b">6822b</option>
+								<option value="700 ">700 </option>
+								<option value="701 ">701 </option>
+								<option value="7020a-2 ">7020a-2 </option>
+								<option value="702T ">702T </option>
+								<option value="7070 Prism">7070 Prism</option>
+								<option value="710 Lumia">710 Lumia</option>
+								<option value="710.1 Lumia">710.1 Lumia</option>
+								<option value="7100s-2 Supernova">7100s-2 Supernova</option>
+								<option value="7100s-2b Supernova">7100s-2b Supernova</option>
+								<option value="7110">7110</option>
+								<option value="720 Lumia">720 Lumia</option>
+								<option value="7200">7200</option>
+								<option value="7210">7210</option>
+								<option value="7210c Supernova">7210c Supernova</option>
+								<option value="7230">7230</option>
+								<option value="7230-c1 ">7230-c1 </option>
+								<option value="7250">7250</option>
+								<option value="7250i">7250i</option>
+								<option value="7260">7260</option>
+								<option value="7270">7270</option>
+								<option value="7280">7280</option>
+								<option value="7310c Supernova">7310c Supernova</option>
+								<option value="7360">7360</option>
+								<option value="7370">7370</option>
+								<option value="7373">7373</option>
+								<option value="7380">7380</option>
+								<option value="7390">7390</option>
+								<option value="7500 Prism">7500 Prism</option>
+								<option value="7500b Prism">7500b Prism</option>
+								<option value="7510a Supernova">7510a Supernova</option>
+								<option value="7600">7600</option>
+								<option value="7610">7610</option>
+								<option value="7610b">7610b</option>
+								<option value="7610s Supernova">7610s Supernova</option>
+								<option value="7650">7650</option>
+								<option value="7710">7710</option>
+								<option value="7900d-1 Prism">7900d-1 Prism</option>
+								<option value="800 Lumia">800 Lumia</option>
+								<option value="800.2 Lumia">800.2 Lumia</option>
+								<option value="800C Lumia">800C Lumia</option>
+								<option value="801T ">801T </option>
+								<option value="808 PureView">808 PureView</option>
+								<option value="810">810</option>
+								<option value="810 Lumia">810 Lumia</option>
+								<option value="8110">8110</option>
+								<option value="8110i">8110i</option>
+								<option value="8118">8118</option>
+								<option value="8146">8146</option>
+								<option value="8148">8148</option>
+								<option value="8148 (Elegance)">8148 (Elegance)</option>
+								<option value="8148i">8148i</option>
+								<option value="820 Lumia">820 Lumia</option>
+								<option value="820.1 Lumia">820.1 Lumia</option>
+								<option value="8210">8210</option>
+								<option value="822 ">822 </option>
+								<option value="822 Lumia">822 Lumia</option>
+								<option value="8250">8250</option>
+								<option value="8310">8310</option>
+								<option value="8350">8350</option>
+								<option value="8600d Luna">8600d Luna</option>
+								<option value="8800">8800</option>
+								<option value="8800a">8800a</option>
+								<option value="8800d Sirocco Edition">8800d Sirocco Edition</option>
+								<option value="8800e-1 Arte">8800e-1 Arte</option>
+								<option value="8800e-1 Carbon Arte">8800e-1 Carbon Arte</option>
+								<option value="8801">8801</option>
+								<option value="8810">8810</option>
+								<option value="8850">8850</option>
+								<option value="8850 (Prototyp)">8850 (Prototyp)</option>
+								<option value="8855">8855</option>
+								<option value="8890">8890</option>
+								<option value="8910">8910</option>
+								<option value="8910i">8910i</option>
+								<option value="900 Lumia">900 Lumia</option>
+								<option value="900.1 Lumia">900.1 Lumia</option>
+								<option value="9000 Communicator">9000 Communicator</option>
+								<option value="9000i Communicator">9000i Communicator</option>
+								<option value="9110 Communicator">9110 Communicator</option>
+								<option value="918">918</option>
+								<option value="920 Lumia">920 Lumia</option>
+								<option value="920.1 Lumia">920.1 Lumia</option>
+								<option value="9210 Communicator">9210 Communicator</option>
+								<option value="9210i Communicator">9210i Communicator</option>
+								<option value="925.1 Lumia">925.1 Lumia</option>
+								<option value="925.4 Lumia">925.4 Lumia</option>
+								<option value="930 Lumia">930 Lumia</option>
+								<option value="9300">9300</option>
+								<option value="9300b Communicator">9300b Communicator</option>
+								<option value="9300i">9300i</option>
+								<option value="9300i Communicator">9300i Communicator</option>
+								<option value="9500 Communicator">9500 Communicator</option>
+								<option value="9500b Communicator">9500b Communicator</option>
+								<option value="Booklet-1 3G">Booklet-1 3G</option>
+								<option value="Booklet-2 3G">Booklet-2 3G</option>
+								<option value="C1-00 ">C1-00 </option>
+								<option value="C1-01 ">C1-01 </option>
+								<option value="C1-02 ">C1-02 </option>
+								<option value="C1-02i ">C1-02i </option>
+								<option value="C1-03 ">C1-03 </option>
+								<option value="C2-00 ">C2-00 </option>
+								<option value="C2-01 ">C2-01 </option>
+								<option value="C2-01.5 ">C2-01.5 </option>
+								<option value="C2-02 ">C2-02 </option>
+								<option value="C2-05 ">C2-05 </option>
+								<option value="C2-07 ">C2-07 </option>
+								<option value="C3-00 ">C3-00 </option>
+								<option value="C3-00.1">C3-00.1</option>
+								<option value="C3-00.2 ">C3-00.2 </option>
+								<option value="C3-01 ">C3-01 </option>
+								<option value="C3-01.5 ">C3-01.5 </option>
+								<option value="C3-01m ">C3-01m </option>
+								<option value="C5-00">C5-00</option>
+								<option value="C5-00.1 ">C5-00.1 </option>
+								<option value="C5-00.2 5MP">C5-00.2 5MP</option>
+								<option value="C5-00.3 5MP">C5-00.3 5MP</option>
+								<option value="C5-00.i 5MP">C5-00.i 5MP</option>
+								<option value="C5-03 ">C5-03 </option>
+								<option value="C5-03.2 ">C5-03.2 </option>
+								<option value="C5-04 ">C5-04 </option>
+								<option value="C5-04.1 ">C5-04.1 </option>
+								<option value="C5-05 ">C5-05 </option>
+								<option value="C5-06 ">C5-06 </option>
+								<option value="C5-08 ">C5-08 </option>
+								<option value="C6-00 ">C6-00 </option>
+								<option value="C6-00.1 ">C6-00.1 </option>
+								<option value="C6-01 ">C6-01 </option>
+								<option value="C6-01.3 ">C6-01.3 </option>
+								<option value="C7-00 ">C7-00 </option>
+								<option value="C7-00.1 ">C7-00.1 </option>
+								<option value="C7-00.1 Astound">C7-00.1 Astound</option>
+								<option value="C7-00s Oro">C7-00s Oro</option>
+								<option value="Capitel C5520">Capitel C5520</option>
+								<option value="Card Phone">Card Phone</option>
+								<option value="Card Phone 2.0">Card Phone 2.0</option>
+								<option value="E5-00 ">E5-00 </option>
+								<option value="E5-00.2 ">E5-00.2 </option>
+								<option value="E5-00m ">E5-00m </option>
+								<option value="E50-1">E50-1</option>
+								<option value="E51-1">E51-1</option>
+								<option value="E51-2">E51-2</option>
+								<option value="E52-1">E52-1</option>
+								<option value="E55-1">E55-1</option>
+								<option value="E6-00 ">E6-00 </option>
+								<option value="E60-1">E60-1</option>
+								<option value="E61-1">E61-1</option>
+								<option value="E61i-1">E61i-1</option>
+								<option value="E61i-2">E61i-2</option>
+								<option value="E62-1">E62-1</option>
+								<option value="E63-1 ">E63-1 </option>
+								<option value="E63-2 ">E63-2 </option>
+								<option value="E63-3 ">E63-3 </option>
+								<option value="E63-5 ">E63-5 </option>
+								<option value="E65-1">E65-1</option>
+								<option value="E66-1">E66-1</option>
+								<option value="E7-00 ">E7-00 </option>
+								<option value="E70-1">E70-1</option>
+								<option value="E71-1">E71-1</option>
+								<option value="E71-2">E71-2</option>
+								<option value="E71-3">E71-3</option>
+								<option value="E71-5">E71-5</option>
+								<option value="E71x ">E71x </option>
+								<option value="E72">E72</option>
+								<option value="E72-1">E72-1</option>
+								<option value="E72-2 ">E72-2 </option>
+								<option value="E72i">E72i</option>
+								<option value="E73 Mode">E73 Mode</option>
+								<option value="E75-1 ">E75-1 </option>
+								<option value="E75-2">E75-2</option>
+								<option value="E90-1 Communicator">E90-1 Communicator</option>
+								<option value="HT-2">HT-2</option>
+								<option value="Lumia 710 ">Lumia 710 </option>
+								<option value="Lumia 710.1 ">Lumia 710.1 </option>
+								<option value="Mobira Cityman 3000">Mobira Cityman 3000</option>
+								<option value="Mobira Cityman 5000">Mobira Cityman 5000</option>
+								<option value="Music Player">Music Player</option>
+								<option value="N-Gage">N-Gage</option>
+								<option value="N-Gage QD">N-Gage QD</option>
+								<option value="N70-1">N70-1</option>
+								<option value="N70-5">N70-5</option>
+								<option value="N71-1">N71-1</option>
+								<option value="N72-5">N72-5</option>
+								<option value="N73-1 ">N73-1 </option>
+								<option value="N73-5">N73-5</option>
+								<option value="N75-3">N75-3</option>
+								<option value="N76-1">N76-1</option>
+								<option value="N76-5">N76-5</option>
+								<option value="N77-1">N77-1</option>
+								<option value="N78-1">N78-1</option>
+								<option value="N79-1">N79-1</option>
+								<option value="N79-3 ">N79-3 </option>
+								<option value="N79-5 ">N79-5 </option>
+								<option value="N8-00 ">N8-00 </option>
+								<option value="N80-1">N80-1</option>
+								<option value="N80-3">N80-3</option>
+								<option value="N81-1">N81-1</option>
+								<option value="N81-3">N81-3</option>
+								<option value="N81-5">N81-5</option>
+								<option value="N810">N810</option>
+								<option value="N82-1">N82-1</option>
+								<option value="N82-5">N82-5</option>
+								<option value="N85-1 ">N85-1 </option>
+								<option value="N85-3">N85-3</option>
+								<option value="N85-5">N85-5</option>
+								<option value="N86-1 8MP">N86-1 8MP</option>
+								<option value="N86-3 8MP">N86-3 8MP</option>
+								<option value="N9-00 ">N9-00 </option>
+								<option value="N90-1">N90-1</option>
+								<option value="N900 ">N900 </option>
+								<option value="N91-1">N91-1</option>
+								<option value="N91-2">N91-2</option>
+								<option value="N91-6">N91-6</option>
+								<option value="N92-1">N92-1</option>
+								<option value="N93-1">N93-1</option>
+								<option value="N93i-1">N93i-1</option>
+								<option value="N95-1">N95-1</option>
+								<option value="N95-2 8GB">N95-2 8GB</option>
+								<option value="N95-3 NAM">N95-3 NAM</option>
+								<option value="N95-4 8GB NAM">N95-4 8GB NAM</option>
+								<option value="N95-5">N95-5</option>
+								<option value="N95-6 ">N95-6 </option>
+								<option value="N950 (Developer Edition)">N950 (Developer Edition)</option>
+								<option value="N96-1">N96-1</option>
+								<option value="N96-3">N96-3</option>
+								<option value="N96-5">N96-5</option>
+								<option value="N97-1">N97-1</option>
+								<option value="N97-3 ">N97-3 </option>
+								<option value="N97-4 Mini">N97-4 Mini</option>
+								<option value="N97-6 Mini">N97-6 Mini</option>
+								<option value="N97i">N97i</option>
+								<option value="PemiCell 18">PemiCell 18</option>
+								<option value="PremiCell">PremiCell</option>
+								<option value="PremiCell 18i">PremiCell 18i</option>
+								<option value="PremiCell 9i">PremiCell 9i</option>
+								<option value="Prototype">Prototype</option>
+								<option value="Remote Camera">Remote Camera</option>
+								<option value="Technophone 880">Technophone 880</option>
+								<option value="TU-8">TU-8</option>
+								<option value="X1-00 ">X1-00 </option>
+								<option value="X1-01">X1-01</option>
+								<option value="X2-00">X2-00</option>
+								<option value="X2-01 ">X2-01 </option>
+								<option value="X2-01.1 ">X2-01.1 </option>
+								<option value="X3-00 ">X3-00 </option>
+								<option value="X3-02 ">X3-02 </option>
+								<option value="X3-02.5 ">X3-02.5 </option>
+								<option value="X5-01 ">X5-01 </option>
+								<option value="X5-01.2 ">X5-01.2 </option>
+								<option value="X6 8GB">X6 8GB</option>
+								<option value="X6-00 ">X6-00 </option>
+								<option value="X6-00 16GB">X6-00 16GB</option>
+								<option value="X6-00.1 ">X6-00.1 </option>
+								<option value="X6-00m ">X6-00m </option>
+								<option value="X7-00 ">X7-00 </option>
+								<option value="X7-00.1">X7-00.1</option>
+								<option value="XL">XL</option>							</select></td>
+							<td><input type="submit" value="Search" name="b_search_phone"></td>
+						</tr>
+					</table>
+					</form>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0E0FF" colspan="5">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="1%"><img border="0" src="borderleft1.gif"></td>
+						<td width="98%"></td>
+						<td width="1%"><img border="0" src="borderright1.gif"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<br>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-6464043918332975";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel = "";
+google_color_border = "E0E0FF";
+google_color_bg = "FFFFFF";
+google_color_link = "000000";
+google_color_text = "000000";
+google_color_url = "808080";
+//--></script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+
+<div style="width: 728px; padding: 10px;">
+<p><b>Statistics:</b> Visits: <b>292540</b> | Today: 143 | Yesterday: 225 | Online: <b>2</b> | Search queries: <b>260882</b></p>
+<p>(c)2007 [ExiTuS], NokiaPort.de - Last update: <b>2014-12-09</b></p></div>
+
+</div>
+
+</div>
+</body>
+
+</html>
